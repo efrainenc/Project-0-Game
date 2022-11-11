@@ -7,7 +7,18 @@ const tamagotchi = {
     Boredom: 0,
 }
 
-// Be able to change name of Pet 
+// Change Pet name
+const form = document.querySelector("#nameForm")
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    // take name input
+    let nameInput = document.querySelector(".newName");
+    // store name input
+    tamagotchi.petName = nameInput.value;
+     // show new name
+    document.querySelector(".petName").textContent = `Name: ${tamagotchi.petName}`;
+});
+
 
 // set background to change on an interval to show time of day
 
