@@ -22,6 +22,35 @@ form.addEventListener("submit", (event) => {
 
 // Add buttons to the screen to feed your pet, 
 // turn off the lights, and play with your pet.
+const feed = document.querySelector("#feed");
+const sleep = document.querySelector("#sleep");
+const play = document.querySelector("#play");
+
+feed.addEventListener("click", (event) => {
+    event.preventDefault()
+    if(tamagotchi.Hunger > 0){
+        tamagotchi.Hunger--;
+        document.querySelector(".petHunger").textContent = `Hunger: ${tamagotchi.Hunger}`;
+    }
+
+});
+
+sleep.addEventListener("click", (event) => {
+    event.preventDefault();
+    if(tamagotchi.Sleepiness > 0){
+        tamagotchi.Sleepiness--;
+        document.querySelector(".petSleepiness").textContent = `Sleepiness: ${tamagotchi.Sleepiness}`;
+    }
+});
+
+play.addEventListener("click", (event) => {
+    event.preventDefault()
+    if(tamagotchi.Boredom > 0){
+        tamagotchi.Boredom--;
+    document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
+    }
+});
+
 
 // Pet dies if Hunger, Boredom, or Sleepiness hits 10
 // if(Hunger === 10 || Sleepiness === 10 || Boredom === 10){
@@ -37,27 +66,31 @@ function increaseMetric(metric){
     if(metric === "hunger"){
         tamagotchi.Hunger++;
         document.querySelector(".petHunger").textContent = `Hunger: ${tamagotchi.Hunger}`;
+        console.log(tamagotchi.Hunger)
     }else if(metric === "sleepiness"){
-        tamagotchi.Sleepiness
+        tamagotchi.Sleepiness++;
         document.querySelector(".petSleepiness").textContent = `Sleepiness: ${tamagotchi.Sleepiness}`;
+        console.log(tamagotchi.Sleepiness)
     }else if(metric === "boredom"){
-        tamagotchi.Boredom++
+        tamagotchi.Boredom++;
         document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
+        console.log(tamagotchi.Boredom)
     }else if(metric === "age"){
         tamagotchi.Age++;
         document.querySelector(".petAge").textContent = `Age: ${tamagotchi.Age}`;
+        console.log(tamagotchi.Age)
     }
 }
 
 // set Hunger(1-10) to increase every 2 minutes
-setInterval(increaseMetric("hunger"), 120000)
+setInterval(increaseMetric("hunger"), 2000)
 
 // set Sleepiness(1-10) to increase every 5min lights arent off at night
 // once asleep set time to day
-setInterval(increaseMetric("sleepiness"), 300000)
+setInterval(increaseMetric("sleepiness"), 1000)
 
 // set Boredom(1-10) to increase every minute you dont play with pet
-setInterval(increaseMetric("boredom"), 60000)
+setInterval(increaseMetric("boredom"), 5000)
 
 // set Age(Days) to increase 1 every 5 minutes
-setInterval(increaseMetric("age"), 300000)
+setInterval(increaseMetric("age"), 10000)
