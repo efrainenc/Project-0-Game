@@ -3,7 +3,7 @@ const tamagotchi = {
     petName: "Tamagotchi",
     Age: 0,
     Hunger: 0,
-    Sleepiness: 0,
+    Sleepiness: 5,
     Boredom: 0,
     isAlive: true
 }
@@ -33,42 +33,55 @@ const feed = document.querySelector("#feed");
 const sleep = document.querySelector("#sleep");
 const play = document.querySelector("#play");
 
-feed.addEventListener("click", (event) => { // Decreases Hunger on button click
-    event.preventDefault()
-    if(tamagotchi.Hunger > 0){
+// Decrease Metrics function
+function decreaseMetric(metric){
+    if(metric === "hunger"){
         tamagotchi.Hunger--;
         document.querySelector(".petHunger").textContent = `Hunger: ${tamagotchi.Hunger}`;
-    }
-
-});
-
-
-sleep.addEventListener("click", (event) => { // Decreases sleepiness on button click (also turn off lights/change bg to visually indicate sleep)
-    event.preventDefault();
-    if(tamagotchi.Sleepiness > 0){
+    }else if(metric === "sleepiness"){
         tamagotchi.Sleepiness--;
         document.querySelector(".petSleepiness").textContent = `Sleepiness: ${tamagotchi.Sleepiness}`;
-        const lightsOff = setInterval(setNightTime(), 1000) // turns off lights for 1 second
-        if(iterations === 1){
-            clearInterval(lightsOff);
-            document.body.style.backgroundImage = "url(https://i.imgur.com/hWCRjKy.png)"
-            iterations--;
-        }
-    }else {
-        alert(`${tamagotchi.petName} is not sleepy`)
+    }else if(metric === "boredom"){
+        tamagotchi.Boredom--;
+        document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
+    }else if(metric === "age"){
+        tamagotchi.Age--;
+        document.querySelector(".petAge").textContent = `Age: ${tamagotchi.Age}`;
     }
-    // turn off lights and set night time
-    function setNightTime(){
-        iterations++;
+}
+
+// Decreases Hunger on button click
+feed.addEventListener("click", (event) => {
+    event.preventDefault()
+    if(tamagotchi.Hunger > 0){
+        decreaseMetric("hunger");
+    }else {
+        alert(`${tamagotchi.petName} is not hungry`)
+    }
+
+});
+
+// Decreases sleepiness on button click (also turn off lights/change bg to visually indicate sleep)
+sleep.addEventListener("click", (event) => {
+    event.preventDefault();
+    if(tamagotchi.Sleepiness > 0){
+        decreaseMetric("sleepiness");
+        // change to this when sleep
         document.body.style.backgroundImage = "url(https://i.imgur.com/3FA4btA.png)";
+    }else {
+        // change back when done sleeping
+        document.body.style.backgroundImage = "url(https://i.imgur.com/hWCRjKy.png)";
+        alert(`${tamagotchi.petName} is not sleepy`)
     }
 });
 
-play.addEventListener("click", (event) => { // Decreases Boredom on button click (can also add animation to show pet playing)
+// Decreases Boredom on button click (can also add animation to show pet playing)
+play.addEventListener("click", (event) => {
     event.preventDefault()
     if(tamagotchi.Boredom > 0){
-        tamagotchi.Boredom--;
-    document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
+        decreaseMetric("boredom");
+    }else {
+        alert(`${tamagotchi.petName} is not bored`)
     }
 });
 
