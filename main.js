@@ -34,27 +34,30 @@ form.addEventListener("submit", (event) => {
 
 //Function to Increase metrics
 function increaseMetric(metric){
-    if(metric === Hunger){
+    if(metric === "hunger"){
         tamagotchi.Hunger++;
-    }else if(metric === Sleepiness){
+        document.querySelector(".petHunger").textContent = `Hunger: ${tamagotchi.Hunger}`;
+    }else if(metric === "sleepiness"){
         tamagotchi.Sleepiness
-    }else if(metric === Boredom){
+        document.querySelector(".petSleepiness").textContent = `Sleepiness: ${tamagotchi.Sleepiness}`;
+    }else if(metric === "boredom"){
         tamagotchi.Boredom++
-    }else if(metric === Age){
+        document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
+    }else if(metric === "age"){
         tamagotchi.Age++;
+        document.querySelector(".petAge").textContent = `Age: ${tamagotchi.Age}`;
     }
 }
 
 // set Hunger(1-10) to increase every 2 minutes
-setInterval(increaseMetric(Hunger), 120000)
+setInterval(increaseMetric("hunger"), 120000)
 
 // set Sleepiness(1-10) to increase every 5min lights arent off at night
 // once asleep set time to day
-setInterval(increaseMetric(Sleepiness), 300000)
-
+setInterval(increaseMetric("sleepiness"), 300000)
 
 // set Boredom(1-10) to increase every minute you dont play with pet
-setInterval(increaseMetric(Boredom), 60000)
+setInterval(increaseMetric("boredom"), 60000)
 
 // set Age(Days) to increase 1 every 5 minutes
-setInterval(increaseMetric(Age), 300000)
+setInterval(increaseMetric("age"), 300000)
