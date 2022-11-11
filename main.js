@@ -5,6 +5,7 @@ const tamagotchi = {
     Hunger: 0,
     Sleepiness: 0,
     Boredom: 0,
+    isAlive: true
 }
 
 // Change Pet name
@@ -19,12 +20,20 @@ form.addEventListener("submit", (event) => {
     document.querySelector(".petName").textContent = `Name: ${tamagotchi.petName}`;
 });
 
+// Pet dies if Hunger, Boredom, or Sleepiness hits 10
+// if(Hunger === 10 || Sleepiness === 10 || Boredom === 10){
+//     //tamagotchi dies
+// }
+
 
 // set background to change on an interval to show time of day
+// Day lasts 5 min, Night last 5 min
+// 
+
+
 
 // Add buttons to the screen to feed your pet, 
 // turn off the lights, and play with your pet.
-// If Hunger, Boredom, or Sleepiness hits 10 pet dies
 
 
 // set Hunger(1-10) to increase every 2 minutes
