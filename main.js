@@ -3,7 +3,7 @@ const tamagotchi = {
     petName: "Tamagotchi",
     Age: 0,
     Hunger: 0,
-    Sleepiness: 0,
+    Sleepiness: 5,
     Boredom: 0,
     isAlive: true
 }
@@ -39,8 +39,10 @@ function decreaseMetric(metric){
         tamagotchi.Hunger--;
         document.querySelector(".petHunger").textContent = `Hunger: ${tamagotchi.Hunger}`;
     }else if(metric === "sleepiness"){
-        tamagotchi.Sleepiness--;
-        document.querySelector(".petSleepiness").textContent = `Sleepiness: ${tamagotchi.Sleepiness}`;
+        if(tamagotchi.Sleepiness > 0){
+            tamagotchi.Sleepiness--;
+            document.querySelector(".petSleepiness").textContent = `Sleepiness: ${tamagotchi.Sleepiness}`;
+        }
     }else if(metric === "boredom"){
         tamagotchi.Boredom--;
         document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
@@ -61,14 +63,16 @@ feed.addEventListener("click", (event) => {
 // Decreases sleepiness on button click (also turn off lights/change bg to visually indicate sleep)
 sleep.addEventListener("click", (event) => {
     event.preventDefault();
-    if(tamagotchi.Sleepiness > 0){
-        decreaseMetric("sleepiness");
-        // change to this when sleep
-        document.body.style.backgroundImage = "url(https://i.imgur.com/3FA4btA.png)";
-    }else {
-        // change back when done sleeping
+    setInterval(decreaseMetric, 1000, "sleepiness");// decreases sleep every second
+    document.querySelector("#sleep").innerHTML = "Wake Up🌅"// Change button to wake up
+    // changes to night time image
+    document.body.classList.toggle('nightClass');
+    // change back when done sleeping
+    if(tamagotchi.Sleepiness === 0){
+        document.querySelector("#sleep").innerHTML = "Sleep💤"; // change button back to sleep
+        alert(`${tamagotchi.petName} is not sleepy`);
+        // changes back to day time image
         document.body.style.backgroundImage = "url(https://i.imgur.com/hWCRjKy.png)";
-        alert(`${tamagotchi.petName} is not sleepy`)
     }
 });
 
@@ -84,9 +88,11 @@ play.addEventListener("click", (event) => {
 
 
 // Pet dies if Hunger, Boredom, or Sleepiness hits 10
-// if(Hunger === 10 || Sleepiness === 10 || Boredom === 10){
-//     //tamagotchi dies
-// }
+if(tamagotchi.Hunger === 10 || tamagotchi.Sleepiness === 10 || tamagotchi.Boredom === 10){
+    //tamagotchi dies
+    tamagotchi.isAlive = false;
+    alert(`Your Tamagotchi ${tamagotchi.petName} has passed away`)
+}
 
 //Function to Increase metrics
 function increaseMetric(metric){
