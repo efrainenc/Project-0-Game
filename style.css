@@ -3,6 +3,11 @@ body { /* Setting the Scenery */
 }
 
 /* Tomagotchi */
+.tamagotchi {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
 
 /* Menu */
 

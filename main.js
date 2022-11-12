@@ -3,7 +3,7 @@ const tamagotchi = {
     petName: "Tamagotchi",
     Age: 0,
     Hunger: 0,
-    Sleepiness: 5,
+    Sleepiness: 0,
     Boredom: 0,
     isAlive: true
 }
@@ -44,9 +44,6 @@ function decreaseMetric(metric){
     }else if(metric === "boredom"){
         tamagotchi.Boredom--;
         document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
-    }else if(metric === "age"){
-        tamagotchi.Age--;
-        document.querySelector(".petAge").textContent = `Age: ${tamagotchi.Age}`;
     }
 }
 
@@ -113,14 +110,14 @@ function increaseMetric(metric){
 }
 
 // set Hunger(1-10) to increase every 2 minutes
-// setInterval(increaseMetric("hunger"), 2000)
+setInterval(increaseMetric, 120000, "hunger")
 
 // set Sleepiness(1-10) to increase every 5min lights arent off at night
 // once asleep set time to day
-// setInterval(increaseMetric("sleepiness"), 1000)
+setInterval(increaseMetric, 300000, "sleepiness")
 
-// set Boredom(1-10) to increase every minute you dont play with pet
-// setInterval(increaseMetric("boredom"), 5000)
+// set Boredom(1-10) to increase every 1.5 minutes you dont play with pet
+setInterval(increaseMetric, 90000, "boredom")
 
 // set Age(Days) to increase 1 every 5 minutes
-// setInterval(increaseMetric("age"), 10000)
+setInterval(increaseMetric, 300000,"age")
