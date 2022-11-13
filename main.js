@@ -5,7 +5,8 @@ const tamagotchi = {
     Hunger: 0,
     Sleepiness: 5,
     Boredom: 0,
-    isAlive: true
+    isAlive: true,
+    sleepTime: 0
 }
 let iterations = 0; // keep track of Interval iterations
 
@@ -60,23 +61,24 @@ feed.addEventListener("click", (event) => {
 
 });
 
-console.log(sleep.value)
 // Decreases sleepiness on button click (also turn off lights/change bg to visually indicate sleep)
 sleep.addEventListener("click", (event) => {
     event.preventDefault();
     //toggle
     if(sleep.value==="ON"){
-        let sleepTime = setInterval(decreaseMetric, 1000, "sleepiness");// decreases sleep every second
+        sleep.value = "OFF";
+        tamagotchi.sleepTime = setInterval(decreaseMetric, 1000, "sleepiness");// decreases sleep every second
         document.querySelector("#sleep").innerHTML = "Wake Up🌅"// Change button to wake up
         // changes to night time image
-        document.body.classList.toggle('nightClass');
-        sleep.value==="OFF";
+        document.body.style.backgroundImage = "url(https://i.imgur.com/3FA4btA.png)";
+        console.log(sleep.value)
     }else if(sleep.value==="OFF"){
-        clearInterval(sleepTime);
-        document.querySelector("#sleep").innerHTML = "Sleep💤"; // change button back to sleep
+        sleep.value = "ON";
+        console.log(sleep.value)
+        clearInterval(tamagotchi.sleepTime);
+        document.querySelector("#sleep").innerHTML = "Sleep💤" // change button back to sleep
         // changes back to day time image
         document.body.style.backgroundImage = "url(https://i.imgur.com/hWCRjKy.png)";
-        sleep.value==="ON";
     }
     // change back when done sleeping
     if(tamagotchi.Sleepiness === 0){
