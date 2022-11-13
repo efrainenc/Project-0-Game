@@ -9,9 +9,9 @@ body { /* Setting the Scenery */
 
 /* Tomagotchi */
 .petImage {
+    position: absolute;
+    bottom: 2%;
     justify-self: center;
-    align-items: end;
-    object-position: bottom;
 }
 
 /* Menu */
