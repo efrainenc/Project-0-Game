@@ -65,14 +65,14 @@ feed.addEventListener("click", (event) => {
 sleep.addEventListener("click", (event) => {
     event.preventDefault();
     //toggle
-    if(sleep.value==="ON"){
+    if(sleep.value==="ON" && tamagotchi.Sleepiness !== 0){
         sleep.value = "OFF";
         tamagotchi.sleepTime = setInterval(decreaseMetric, 1000, "sleepiness");// decreases sleep every second
         document.querySelector("#sleep").innerHTML = "Wake Up🌅"// Change button to wake up
         // changes to night time image
         document.body.style.backgroundImage = "url(https://i.imgur.com/3FA4btA.png)";
         console.log(sleep.value)
-    }else if(sleep.value==="OFF"){
+    }else if(sleep.value==="OFF" || tamagotchi.Sleepiness !== 0){
         sleep.value = "ON";
         console.log(sleep.value)
         clearInterval(tamagotchi.sleepTime);
