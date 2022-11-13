@@ -8,9 +8,10 @@ body { /* Setting the Scenery */
 }
 
 /* Tomagotchi */
-.tamagotchi {
+.petImage {
     justify-self: center;
     align-items: end;
+    object-position: bottom;
 }
 
 /* Menu */
