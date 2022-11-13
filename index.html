@@ -6,34 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="./main.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
     <title>Tamagotchi Game</title>
 </head>
 <body class="background">
-    <form id="nameForm">
-        <label for="newName">Name your pet: </label>
-        <input type="text" class="newName">
-        <button id="submit" type="submit">Submit</button>
-    </form>
-    <p class="petName">
-        Name:
-    </p>
-    <p class="petAge">
-        Age:
-    </p>
-    <p class="petHunger">
-        Hunger:
-    </p>
-    <button id="feed" type="button">Feed🍞</button>
-    <p class="petSleepiness">
-        Sleepiness:
-    </p>
-    <button id="sleep" type="button" value="ON">Sleep💤</button>
-    <p class="petBoredom">
-        Boredom:
-    </p>
-    <button id="play" type="button">Play🕹️</button>
-    <div class="tamagotchi">
-        <img src="C:\Users\Efrain\Desktop\Infinity\pics\shiba.png">
+    <div id="menu">
+        <form id="nameForm">
+            <label for="newName">Name your pet: </label>
+            <input type="text" class="newName">
+            <button id="submit" type="submit">Submit</button></br>
+        </form>
+        <p class="petName">
+            Name:
+        </p>
+        <p class="petAge">
+            Age:
+        </p>
+        <p class="petHunger">
+            Hunger:
+        </p>
+        <button id="feed" type="button">Feed🍞</button></br>
+        <p class="petSleepiness">
+            Sleepiness:
+        </p>
+        <button id="sleep" type="button" value="ON">Sleep💤</button></br>
+        <p class="petBoredom">
+            Boredom:
+        </p>
+        <button id="play" type="button">Play🕹️</button></br>
     </div>
+    <img src="C:\Users\Efrain\Desktop\Infinity\pics\shiba.png" class="tamagotchi" alt="Shiba">
 </body>
 </html>

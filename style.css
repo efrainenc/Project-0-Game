@@ -1,4 +1,6 @@
 body { /* Setting the Scenery */
+    font-family: 'Press Start 2P', cursive;
+    display: grid;
     background-size: cover; 
     background-repeat: no-repeat;  
     background-attachment: fixed;
@@ -7,12 +9,13 @@ body { /* Setting the Scenery */
 
 /* Tomagotchi */
 .tamagotchi {
-    display: flex;
-    justify-content: center;
+    justify-self: center;
     align-items: end;
 }
 
 /* Menu */
-
+#menu {
+    justify-self: start;
+}
 
 
