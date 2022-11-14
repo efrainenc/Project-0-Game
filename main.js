@@ -40,15 +40,15 @@ const play = document.querySelector("#play");
 
 // Decrease Metrics function
 function decreaseMetric(metric){
-    if(metric === "hunger"){
+    if(metric === "hunger"){ // decreases Hunger
         tamagotchi.Hunger--;
         document.querySelector(".petHunger").textContent = `Hunger: ${tamagotchi.Hunger}`;
-    }else if(metric === "sleepiness"){
+    }else if(metric === "sleepiness"){// decreases Hunger
         if(tamagotchi.Sleepiness > 0){
             tamagotchi.Sleepiness--;
             document.querySelector(".petSleepiness").textContent = `Sleepiness: ${tamagotchi.Sleepiness}`;
         }
-    }else if(metric === "boredom"){
+    }else if(metric === "boredom"){// decreases Hunger
         tamagotchi.Boredom--;
         document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
     }
@@ -70,19 +70,21 @@ feed.addEventListener("click", (event) => {
 // Decreases sleepiness on button click (also turn off lights/change bg to visually indicate sleep)
 sleep.addEventListener("click", (event) => {
     event.preventDefault();
-    //toggle
+    // turns button into toggle
     if(sleep.value==="ON" && tamagotchi.Sleepiness !== 0){
-        sleep.value = "OFF";
-        tamagotchi.sleepTime = setInterval(decreaseMetric, 1000, "sleepiness");// decreases sleep every second
-        document.querySelector("#sleep").innerHTML = "Wake Up🌅"// Change button to wake up
+        sleep.value = "OFF";// toggle
+        // decreases sleep every second
+        tamagotchi.sleepTime = setInterval(decreaseMetric, 1000, "sleepiness");
+        // Change button to wake up
+        document.querySelector("#sleep").innerHTML = "Wake Up🌅";
         // changes to night time image
         document.body.style.backgroundImage = "url(https://i.imgur.com/3FA4btA.png)";
-        console.log(sleep.value)
     }else if(sleep.value==="OFF" || tamagotchi.Sleepiness !== 0){
-        sleep.value = "ON";
-        console.log(sleep.value)
-        clearInterval(tamagotchi.sleepTime);// stop decrease when lights on
-        document.querySelector("#sleep").innerHTML = "Sleep💤" // change button back to sleep
+        sleep.value = "ON";// toggle
+        // stop decrease when lights on
+        clearInterval(tamagotchi.sleepTime);
+        // change button back to sleep
+        document.querySelector("#sleep").innerHTML = "Sleep💤";
         // changes back to day time image
         document.body.style.backgroundImage = "url(https://i.imgur.com/hWCRjKy.png)";
     }else if(tamagotchi.Sleepiness === 0){  // if not sleepy
@@ -91,12 +93,12 @@ sleep.addEventListener("click", (event) => {
 });
 
 
-// Decreases Boredom on button click (can also add animation to show pet playing)
+// Decreases Boredom on button click
 play.addEventListener("click", (event) => {
     event.preventDefault()
     if(tamagotchi.Boredom > 0){
         decreaseMetric("boredom");
-    }else {
+    }else { // if boredom = 0
         alert(`${tamagotchi.petName} is not bored`)
     }
 });
@@ -109,8 +111,8 @@ function checkAlive(){
         tamagotchi.isAlive = false;
         //change to death image
         document.querySelector(".petImage").src ="https://prezigram-assets.prezicdn.net/96a0cf2fc8d665c6e127a5c4150cfcd059eae29c8359ddb251b3c408059f1dbdc71d3767d06899ef5e5fabad949d7e6d4c15148d31ca51d1c703fa81836fe0c1"
-
-        alert(`Your Tamagotchi "${tamagotchi.petName}" has passed away`); // alert the player
+        // alert the player
+        alert(`Your Tamagotchi "${tamagotchi.petName}" has passed away`);
         //stop increasing Metrics
         clearInterval(increaseHunger);
         clearInterval(increaseSleepy);
@@ -133,22 +135,22 @@ function checkAlive(){
 
 //Function to Increase metrics
 function increaseMetric(metric){
-    if(metric === "hunger"){
+    if(metric === "hunger"){// increases Hunger
         tamagotchi.Hunger++;
         document.querySelector(".petHunger").textContent = `Hunger: ${tamagotchi.Hunger}`;
         console.log(tamagotchi.Hunger)
         checkAlive()
-    }else if(metric === "sleepiness"){
+    }else if(metric === "sleepiness"){// increases Sleepiness
         tamagotchi.Sleepiness++;
         document.querySelector(".petSleepiness").textContent = `Sleepiness: ${tamagotchi.Sleepiness}`;
         console.log(tamagotchi.Sleepiness)
         checkAlive()
-    }else if(metric === "boredom"){
+    }else if(metric === "boredom"){// increases Boredom
         tamagotchi.Boredom++;
         document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
         console.log(tamagotchi.Boredom)
         checkAlive()
-    }else if(metric === "age"){
+    }else if(metric === "age"){// increases Age
         tamagotchi.Age++;
         document.querySelector(".petAge").textContent = `Age: ${tamagotchi.Age}`;
         console.log(tamagotchi.Age)

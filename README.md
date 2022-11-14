@@ -1,7 +1,21 @@
 # Project-0-Game
 # Tamagotchi Game
 
-### Overview
+### App functionality
+this tamagotchi apps works by using setIntervals to increase Pet Metrics(Hunger, Sleepiness, Boredom [scale of 1-10]) 
+that the player then has to maintain, using simple button inputs to decrement the metrics, 
+and keep all values from reaching 10 which would result in the loss of the pet.
+
+### Triumphs
+I had a good time turning the Sleep button into a day/ night toggle that didnt decrement metrics per click but decreased the sleep over another set interval
+
+### Challenges
+I wouldve liked to do more styling with css to have the tamagotchi have a clean consistent enviroment regardless of window size but I wasnt able to have that done
+
+### Words of Wisdom
+
+
+### Code snippets
 
 
 ### Documentation Stretch Goals

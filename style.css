@@ -1,6 +1,7 @@
 body { /* Setting the Scenery */
     font-family: 'Press Start 2P', cursive;
     display: grid;
+    grid-row: 1fr 1fr 1fr;
     background-size: cover; 
     background-repeat: no-repeat;  
     background-attachment: fixed;
@@ -12,6 +13,7 @@ body { /* Setting the Scenery */
     position: absolute;
     bottom: 10px;
     justify-self: center;
+    grid-area: footer;
 }
 
 /* Menu */
