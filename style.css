@@ -10,7 +10,7 @@ body { /* Setting the Scenery */
 /* Tomagotchi */
 .petImage {
     position: absolute;
-    bottom: 2%;
+    bottom: 10px;
     justify-self: center;
 }
 

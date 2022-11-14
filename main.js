@@ -4,7 +4,7 @@ const tamagotchi = {
     Age: 0,
     Hunger: 0,
     Sleepiness: 0,
-    Boredom: 9,
+    Boredom: 0,
     isAlive: true,
     sleepTime: 0
 }
@@ -108,7 +108,7 @@ function checkAlive(){
         //tamagotchi dies
         tamagotchi.isAlive = false;
         //change to death image
-        document.querySelector(".petImage").src ="https://art.pixilart.com/1d506ddb543c512.png"
+        document.querySelector(".petImage").src ="https://prezigram-assets.prezicdn.net/96a0cf2fc8d665c6e127a5c4150cfcd059eae29c8359ddb251b3c408059f1dbdc71d3767d06899ef5e5fabad949d7e6d4c15148d31ca51d1c703fa81836fe0c1"
 
         alert(`Your Tamagotchi "${tamagotchi.petName}" has passed away`); // alert the player
         //stop increasing Metrics
@@ -126,6 +126,7 @@ function checkAlive(){
         document.querySelector(".petHunger").textContent = `Hunger: ${tamagotchi.Hunger}`;
         document.querySelector(".petSleepiness").textContent = `Sleepiness: ${tamagotchi.Sleepiness}`;
         document.querySelector(".petBoredom").textContent = `Boredom: ${tamagotchi.Boredom}`;
+        reload();
     } 
 }
 

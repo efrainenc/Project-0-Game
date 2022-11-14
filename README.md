@@ -3,62 +3,6 @@
 
 ### Overview
 
-Let's start out with something fun—**a game!**
-
-Everyone will get a chance to **be creative**, and work through some really **tough programming challenges**.
-
-**You will be working individually for this project**, but we'll be guiding you along the process and helping as you go. Show us what you've got!
-
----
-
-### Technical Requirements
-
-Your app must:
-
-- Create a new GH repo with your application starter files (`index.html`, `main.js`, and `style.css`)
-- **Git 20+ commits** Commit early, commit often. Tell a story with your commits. Each message should give a clear idea what you changed.
-- **Render a game in the browser**
-- **Include separate HTML / CSS / JavaScript files**
-- Stick with **KISS (Keep It Simple Stupid)** and **DRY (Don't Repeat Yourself)** principles
-- Use **JavaScript** for **DOM manipulation** (no Canvas)
-- Use **semantic markup** for HTML and CSS (adhere to best practices)
-
----
-
-### Necessary Deliverables
-
-- A working MVP (minimum viable product) what is the absolute bare minimum functionality for you game, do not make it more complex until you've completed your MVP.
-- A **working game, *built by you…***
-
----
-
-### 🥉MVP Specifications
-
-- Create a repo for your tamagotchi pet
-- Instantiate your Tamagotchi (tamagotchi object)
-- Display a character of your choice on the screen to represent your pet
-- Display the following metrics for your pet:
-    - Hunger (1-10 scale)
-    - Sleepiness (1-10 scale)
-    - Boredom (1-10 scale)
-    - Age
-- You pet should die if Hunger, Boredom, or Sleepiness hits 10.
-- Increase your pet's Age every x minutes
-- Increase your pet's Hunger, Sleepiness, and Bored metrics on an interval of your choosing.
-- Add buttons to the screen to feed your pet, turn off the lights, and play with your pet.
-- Add the ability to name your pet.
-- Provide **basic** style for the page.
-
-## 🚀 Stretch Goals
-
-- Animate your pet across the screen while it's alive. Check out using [jQuery](https://jquery.com/) to animate your pet with jQuery's [animate method](https://api.jquery.com/animate/).
-- Morph your pet at certain ages.
-- Have your tamagotchi give birth to baby tamagotchi...
-- ...with special powers (extend the class)!
-- Add an `exercise()` method to your tamagotchi, that affects certain properties
-- Add anything you can think of... use your imagination!
-
----
 
 ### Documentation Stretch Goals
 
